@@ -1,7 +1,7 @@
 pipeline {
     agent { 
         node {
-            label 'docker-agent-python'
+            label 'jenkins-agent-goes-here'
             }
       }
     triggers {
@@ -12,6 +12,8 @@ pipeline {
             steps {
                 echo "Building.."
                 sh '''
+                cd myapp
+                pip install -r requirements.txt
                 echo "doing build stuff.."
                 '''
             }
@@ -20,6 +22,8 @@ pipeline {
             steps {
                 echo "Testing.."
                 sh '''
+                python3 hello.py
+                pythpm3 hello.py --name=Winston
                 echo "doing test stuff.."
                 '''
             }
